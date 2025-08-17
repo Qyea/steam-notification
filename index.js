@@ -2,6 +2,17 @@ const TelegramApi = require("node-telegram-bot-api");
 const axios = require("axios");
 const fs = require("fs");
 
+// I left so because of Render
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get("/", (_req, res) => res.send("Bot is alive!"));
+
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
+
 const token = process.env.BOT_TOKEN;
 
 const bot = new TelegramApi(token, { polling: true });
